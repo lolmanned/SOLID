@@ -1,13 +1,13 @@
 package com.zlrx.solid.ocp.good;
 
-public class SportCarTaxRole extends TaxRole {
+public class LimousineTaxRole extends TaxRole {
 
-    public SportCarTaxRole(Car car) {
+    public LimousineTaxRole(Car car) {
         super(car);
     }
 
     @Override
     public int calculateTax() {
-        return 3000;
+        return 2000;
     }
 }

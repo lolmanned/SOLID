@@ -5,16 +5,16 @@ import java.util.List;
 
 public class CarTaxCalculator {
 
-    private final List<Car> cars;
+    private final List<TaxRole> taxRoles;
 
-    public CarTaxCalculator(List<Car> cars) {
-        this.cars = cars;
+    public CarTaxCalculator(List<TaxRole> taxRoles) {
+        this.taxRoles = taxRoles;
     }
 
     public void calculateTax() {
-        for (Car car : cars) {
-            int tax = car.taxRole.calculateTax();
-            System.out.println(car.manufacturer + " adója: " + tax);
+        for (TaxRole taxRole : taxRoles) {
+            int tax = taxRole.calculateTax();
+            System.out.println(taxRole.getCar().manufacturer + " adója: " + tax);
         }
     }
 }

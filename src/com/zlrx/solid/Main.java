@@ -1,9 +1,6 @@
 package com.zlrx.solid;
 
-import com.zlrx.solid.ocp.good.Car;
-import com.zlrx.solid.ocp.good.CarTaxCalculator;
-import com.zlrx.solid.ocp.good.SportCarTaxRole;
-import com.zlrx.solid.ocp.good.TaxRole;
+import com.zlrx.solid.ocp.good.*;
 import com.zlrx.solid.srp.Employee;
 import com.zlrx.solid.srp.SalaryCalculator;
 import com.zlrx.solid.srp.SalaryReporter;
@@ -15,17 +12,26 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
+        //srp
         Employee e = new Employee("Conan a barkács", 3000);
         SalaryCalculator sc = new SalaryCalculator(e);
         SalaryReporter sr = new StdoSalaryReporter(sc);
         sr.report();
 
+        //ocp
+        Car ferrari = new Car("Mustang", Car.CarType.SportCar);
+        TaxRole sportCarTaxRole = new SportCarTaxRole(ferrari);
 
-        TaxRole tr = new SportCarTaxRole();
-        Car car = new Car("Ferrari", Car.CarType.SportCar, tr);
-        List<Car> cars = new ArrayList<>();
-        cars.add(car);
-        CarTaxCalculator ctc = new CarTaxCalculator(cars);
+        Car limousin = new Car("Lincoln", Car.CarType.Limousine);
+        TaxRole limousineTaxRole = new LimousineTaxRole(limousin);
+
+        List<TaxRole> taxRoles = new ArrayList<>();
+        taxRoles.add(sportCarTaxRole);
+        taxRoles.add(limousineTaxRole);
+
+        CarTaxCalculator ctc = new CarTaxCalculator(taxRoles);
         ctc.calculateTax();
+
+
     }
 }
