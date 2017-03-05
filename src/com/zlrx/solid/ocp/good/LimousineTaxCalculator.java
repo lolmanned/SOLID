@@ -1,8 +1,10 @@
 package com.zlrx.solid.ocp.good;
 
-public class LimousineTaxRole extends TaxRole {
+import com.zlrx.solid.ocp.Car;
 
-    public LimousineTaxRole(Car car) {
+public class LimousineTaxCalculator extends TaxCalculator {
+
+    public LimousineTaxCalculator(Car car) {
         super(car);
     }
 

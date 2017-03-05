@@ -1,6 +1,9 @@
 package com.zlrx.solid;
 
-import com.zlrx.solid.ocp.good.*;
+import com.zlrx.solid.ocp.Car;
+import com.zlrx.solid.ocp.good.LimousineTaxCalculator;
+import com.zlrx.solid.ocp.good.SportCarTaxCalculator;
+import com.zlrx.solid.ocp.good.TaxCalculator;
 import com.zlrx.solid.srp.Employee;
 import com.zlrx.solid.srp.SalaryCalculator;
 import com.zlrx.solid.srp.SalaryReporter;
@@ -20,17 +23,18 @@ public class Main {
 
         //ocp
         Car ferrari = new Car("Mustang", Car.CarType.SportCar);
-        TaxRole sportCarTaxRole = new SportCarTaxRole(ferrari);
+        TaxCalculator sportCarTaxCalculator = new SportCarTaxCalculator(ferrari);
 
         Car limousin = new Car("Lincoln", Car.CarType.Limousine);
-        TaxRole limousineTaxRole = new LimousineTaxRole(limousin);
+        TaxCalculator limousineTaxCalculator = new LimousineTaxCalculator(limousin);
 
-        List<TaxRole> taxRoles = new ArrayList<>();
-        taxRoles.add(sportCarTaxRole);
-        taxRoles.add(limousineTaxRole);
+        List<TaxCalculator> taxCalculators = new ArrayList<>();
+        taxCalculators.add(sportCarTaxCalculator);
+        taxCalculators.add(limousineTaxCalculator);
 
-        CarTaxCalculator ctc = new CarTaxCalculator(taxRoles);
-        ctc.calculateTax();
+        for (TaxCalculator tc : taxCalculators) {
+            System.out.println(tc.getCar().manufacturer + " adója: " + tc.calculateTax() + " HUF");
+        }
 
 
     }

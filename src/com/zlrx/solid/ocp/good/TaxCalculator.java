@@ -1,10 +1,12 @@
 package com.zlrx.solid.ocp.good;
 
-public abstract class TaxRole {
+import com.zlrx.solid.ocp.Car;
+
+public abstract class TaxCalculator {
 
     protected final Car car;
 
-    public TaxRole(Car car) {
+    public TaxCalculator(Car car) {
         this.car = car;
     }
 

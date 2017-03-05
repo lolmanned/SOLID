@@ -1,9 +1,8 @@
-package com.zlrx.solid.ocp.good;
+package com.zlrx.solid.ocp;
 
 public class Car {
-
-    String manufacturer;
-    CarType carType;
+    public String manufacturer;
+    public CarType carType;
 
     public Car(String manufacturer, CarType carType) {
         this.manufacturer = manufacturer;

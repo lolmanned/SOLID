@@ -1,29 +1,25 @@
 package com.zlrx.solid.ocp.bad;
 
-import java.util.List;
+import com.zlrx.solid.ocp.Car;
 
 public class CarTaxCalculator {
 
-    private final List<Car> cars;
+    private final Car car;
 
-    CarTaxCalculator(List<Car> cars) {
-        this.cars = cars;
+    CarTaxCalculator(Car car) {
+        this.car = car;
     }
 
-    public void calculateTax() {
-
-        for (Car car : cars) {
-            switch (car.carType) {
-                case Cabrio:
-                    //szamolas logika
-                    break;
-                case Limusine:
-                    //szamolas logika
-                    break;
-                case SportCar:
-                    //szamolas logika
-                    break;
-            }
+    public int calculateTax() {
+        switch (car.carType) {
+            case Cabrio:
+                return 1000;
+            case Limousine:
+                return 2000;
+            case SportCar:
+                return 3000;
+            default:
+                return 0;
         }
     }
 }
