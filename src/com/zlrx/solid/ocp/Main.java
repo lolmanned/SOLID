@@ -11,8 +11,8 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Car ferrari = new Car("Mustang", Car.CarType.SportCar);
-        TaxCalculator sportCarTaxCalculator = new SportCarTaxCalculator(ferrari);
+        Car mustang = new Car("Mustang", Car.CarType.SportCar);
+        TaxCalculator sportCarTaxCalculator = new SportCarTaxCalculator(mustang);
 
         Car limousin = new Car("Lincoln", Car.CarType.Limousine);
         TaxCalculator limousineTaxCalculator = new LimousineTaxCalculator(limousin);
